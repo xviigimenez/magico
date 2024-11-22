@@ -26,11 +26,17 @@
                   </Label>
                   <TextField fx:id="txtLoginEmail" promptText="E-mail" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
                   <PasswordField fx:id="txtLoginPassword" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Button fx:id="btn_CreateAccount" mnemonicParsing="false" onAction="#goToCadastro" style="-fx-background-color: #947fe2;" text="Criar conta" textFill="WHITE" />
+                  <Button fx:id="btn_CreateAccount" mnemonicParsing="false" onAction="#goToCadastro" style="-fx-background-color: #613ce8;" text="Criar conta" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <Button fx:id="btn_Login" mnemonicParsing="false" onAction="#fazerLoginUser" style="-fx-background-color: #613ce8;" text="Login" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
             </FlowPane>
