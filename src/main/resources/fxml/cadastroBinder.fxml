@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="280.0" prefWidth="334.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.mycompany.cardpro4.controller.CadastroBinderController">
+    <stylesheets>
+        <URL value="@/styles/cadastrobinder.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="txtBinderName" layoutX="50.0" layoutY="54.0" promptText="Binder Name" />
+      <Button fx:id="btnSaveBinder" layoutX="184.0" layoutY="215.0" mnemonicParsing="false" onAction="#handleSaveBinder" prefHeight="26.0" prefWidth="107.0" text="Save" />
+      <TextArea fx:id="txtBinderDescription" layoutX="50.0" layoutY="108.0" prefHeight="64.0" prefWidth="217.0" promptText="description" />
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCadastroCarta" text="&lt;" />
+   </children>
+</AnchorPane>
