@@ -55,6 +55,9 @@ public class ExcluirCartaController implements Initializable {
             // Configura o palco com a nova cena
             stage.setScene(scene);
 
+	    // Centraliza a janela
+	    stage.centerOnScreen();
+
             // Exibe a nova tela
             stage.show();
         } catch (IOException e) {

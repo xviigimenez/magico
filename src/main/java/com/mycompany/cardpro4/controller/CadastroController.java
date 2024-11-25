@@ -44,8 +44,11 @@ public class CadastroController {
 
             // Responsável por criar um novo palco (janela) para exibir o login
             Stage newStage = new Stage();
+	    // Adiciona um título para a janela
             newStage.setTitle("Login");
             newStage.setScene(scene);
+	    // Centraliza a janela principal
+	    newStage.centerOnScreen();
 
             // Responsável por exibir o novo formulário
             newStage.show();

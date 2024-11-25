@@ -20,6 +20,11 @@ public class App extends Application {
 
         scene = new Scene(loadFXML("login"));
         stage.setScene(scene);
+	// Adiciona um título para a primeira janela
+	stage.setTitle("Login");
+	// Centraliza a janela
+	stage.centerOnScreen();
+	// Não deixa o usuário redimensionar a janela
         stage.setResizable(false);
         stage.show();
     }

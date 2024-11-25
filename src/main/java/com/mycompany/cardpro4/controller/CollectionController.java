@@ -155,6 +155,8 @@ public class CollectionController implements Initializable {
             Stage newStage = new Stage();
             newStage.setTitle(titulo);
             newStage.setScene(scene);
+	    // Centraliza a janela
+	    newStage.centerOnScreen();
             newStage.show();
             currentStage.close();
         } catch (IOException e) {

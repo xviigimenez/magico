@@ -222,6 +222,9 @@ public class CadastroCartaController {
                 // Responsável por configurar o palco com a cena principal
                 stage.setScene(scene);
 
+	    	// Centraliza a janela principal
+	    	stage.centerOnScreen();
+
                 // Responsável por exibir a nova tela
                 stage.show();
             } catch (IOException e) {
@@ -248,6 +251,9 @@ public class CadastroCartaController {
 
                 // Responsável por configurar o palco com a cena principal
                 stage.setScene(scene);
+
+	    	// Centraliza a janela principal
+	    	stage.centerOnScreen();
 
                 // Responsável por exibir a nova tela
                 stage.show();
