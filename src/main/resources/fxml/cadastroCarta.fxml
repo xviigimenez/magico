@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="581.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroCartaController">
+    <stylesheets>
+        <URL value="@/styles/cadastrocarta.css" />
+    </stylesheets>
+   <children>
+      <TextField fx:id="nomeField" layoutX="45.0" layoutY="205.0" prefHeight="26.0" prefWidth="254.0" promptText="Nome" />
+      <ComboBox fx:id="raridadeBox" layoutX="45.0" layoutY="255.0" prefWidth="150.0" promptText="Raridade" />
+      <ComboBox fx:id="temaBox" layoutX="45.0" layoutY="302.0" prefWidth="150.0" promptText="Tema" />
+      <ComboBox fx:id="colecaoBox" layoutX="44.0" layoutY="346.0" prefWidth="150.0" promptText="Binder" />
+      <Button fx:id="addCollectionButton" layoutX="204.0" layoutY="346.0" mnemonicParsing="false" onAction="#goToCadastroBinder" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #613ce8;" text="Adicionar Binder..." textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="26.0" prefWidth="30.0" text="&lt;" />
+      <Button fx:id="addButton" layoutX="431.0" layoutY="428.0" mnemonicParsing="false" onAction="#cadastrarCarta" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Adicionar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      
+      <!-- Seção para adicionar e exibir a imagem -->
+      <Button fx:id="selectImageButton" layoutX="376.0" layoutY="346.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #613ce8;" text="Selecionar imagem..." textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <ImageView fx:id="imagePreview" fitHeight="129.0" fitWidth="150.0" layoutX="349.0" layoutY="88.0" preserveRatio="true" />
+      <ImageView fitHeight="227.0" fitWidth="213.0" layoutX="331.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>

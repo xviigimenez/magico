@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane cacheShape="false" maxHeight="350.0" maxWidth="600.0" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="350.0" prefWidth="600.0" scaleShape="false" snapToPixel="false" style="-fx-background-image: url(&quot;sta-89-dark-ritual.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 420px 512px; -fx-background-position: left center;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.LoginController">
+   <right>
+      <AnchorPane prefHeight="300.0" prefWidth="300.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane alignment="CENTER" hgap="30.0" layoutX="62.0" layoutY="75.0" prefHeight="200.0" prefWidth="200.0" vgap="30.0">
+               <children>
+                  <Label style="-fx-background-color: #ffffff;" text="Login">
+                     <font>
+                        <Font name="Consolas" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtLoginEmail" promptText="E-mail" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
+                  <PasswordField fx:id="txtLoginPassword" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button fx:id="btn_CreateAccount" mnemonicParsing="false" onAction="#goToCadastro" style="-fx-background-color: #613ce8;" text="Criar conta" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btn_Login" mnemonicParsing="false" onAction="#fazerLoginUser" style="-fx-background-color: #613ce8;" text="Login" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </FlowPane>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
