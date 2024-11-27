@@ -7,13 +7,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="550.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.mycompany.cardpro4.controller.ExcluirCartaController">
+<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="550.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.ExcluirCartaController">
     <stylesheets>
         <URL value="@/styles/excluircarta.css" />
     </stylesheets>
    <children>
       <ComboBox fx:id="tipoBox" layoutX="49.0" layoutY="129.0" prefHeight="26.0" prefWidth="397.0" promptText="Selecione a opção desejada" />
-      <Button fx:id="btnExcluir" layoutX="342.0" layoutY="232.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" text="Excluir" />
+      <Button fx:id="btnExcluir" layoutX="342.0" layoutY="232.0" mnemonicParsing="false" onAction="#excluir" prefHeight="48.0" prefWidth="143.0" text="Excluir" />
       <Label layoutX="86.0" layoutY="53.0" text="Deseja excluir um Binder ou uma Carta?">
          <font>
             <Font size="20.0" />

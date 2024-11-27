@@ -48,7 +48,7 @@ public class CollectionController implements Initializable {
     @FXML 
     private TilePane tilePaneCartas;
 
-    private static final String QUALQUER_UM = "Qualquer um";
+    private static final String ALL = "All";
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -129,6 +129,8 @@ public class CollectionController implements Initializable {
         }
         return null;
     }
+    
+    
 
     private void mostrarAlerta(Alert.AlertType tipo, String titulo, String mensagem) {
         Alert alert = new Alert(tipo);
@@ -175,21 +177,127 @@ public class CollectionController implements Initializable {
 
         List<String> binder = binderDAO.listarBinderPorUsuario(user.getId());
         binderBox.getItems().clear();
-        binderBox.getItems().add(QUALQUER_UM);
+        binderBox.getItems().add(ALL);
         binderBox.getItems().addAll(binder);
     }
 
     private void configurarComboBoxes() {
-        raridadeBox.getItems().addAll(
-                QUALQUER_UM, "Comum", "Incomum", "Raro", "Raro Holográfico", "Ultra Raro", "Hiper Raro", "Secreto Raro"
+        raridadeBox.getItems().addAll(ALL, "Comum", "Incomum", "Raro", "Raro Holográfico", "Ultra Raro", "Hiper Raro", "Secreto Raro"
         );
 
-        temaBox.getItems().addAll(
-                QUALQUER_UM, "Pokémon", "Yu-Gi-Oh!", "Magic: The Gathering", "Digimon", "Dragon Ball"
+        temaBox.getItems().addAll(ALL, "Pokémon", "Yu-Gi-Oh!", "Magic: The Gathering", "Digimon", "Dragon Ball"
         );
 
         carregarColecoes();
     }
+    
+    
+    
+//    Antigo filtrar Cartas sem consulta de Binder
+//    @FXML
+//    private void filtrarCartas() {
+//    try {
+//        User user = Session.getUser();
+//        if (user == null) {
+//            mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Nenhum usuário está logado.");
+//            return;
+//        }
+//
+//        String nomeCarta = txtCartaName.getText().trim();
+//        String raridadeSelecionada = raridadeBox.getValue();
+//        String temaSelecionado = temaBox.getValue();
+//
+//        // Ajustar valores para representar a seleção padrão
+//        if (raridadeSelecionada == null || ALL.equals(raridadeSelecionada)) {
+//            raridadeSelecionada = null;
+//        }
+//        if (temaSelecionado == null || ALL.equals(temaSelecionado)) {
+//            temaSelecionado = null;
+//        }
+//
+//        // Buscar cartas com base nos filtros
+//        List<Carta> cartasFiltradas = cartaDAO.buscarCartasFiltradas(user.getId(), nomeCarta, raridadeSelecionada, temaSelecionado);
+//
+//        if (cartasFiltradas.isEmpty()) {
+//            mostrarAlerta(Alert.AlertType.INFORMATION, "Nenhuma carta encontrada", "Nenhuma carta encontrada com os filtros selecionados.");
+//            carregarCartasUsuarioAtual(); // Recarrega todas as cartas do usuário
+//            return;
+//        }
+//
+//        // Atualizar a exibição das cartas
+//        tilePaneCartas.getChildren().clear();
+//        for (Carta carta : cartasFiltradas) {
+//            VBox cartaContainer = criarCartaContainer(carta);
+//            if (cartaContainer != null) {
+//                tilePaneCartas.getChildren().add(cartaContainer);
+//            }
+//        }
+//    } catch (SQLException e) {
+//        mostrarAlerta(Alert.AlertType.ERROR, "Erro ao filtrar cartas", "Ocorreu um erro ao aplicar os filtros: " + e.getMessage());
+//    }
+//}
+@FXML
+private void filtrarCartas() {
+    try {
+        User user = Session.getUser();
+        if (user == null) {
+            mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Nenhum usuário está logado.");
+            return;
+        }
 
+        String nomeCarta = txtCartaName.getText().trim();
+        String raridadeSelecionada = raridadeBox.getValue();
+        String temaSelecionado = temaBox.getValue();
+        String binderSelecionado = binderBox.getValue();  // Captura a seleção do binder
+
+        // Ajustar valores para representar a seleção padrão (Qualquer um)
+        if (raridadeSelecionada == null || ALL.equals(raridadeSelecionada)) {
+            raridadeSelecionada = null;
+        }
+        if (temaSelecionado == null || ALL.equals(temaSelecionado)) {
+            temaSelecionado = null;
+        }
+        if (ALL.equals(binderSelecionado)) {
+            binderSelecionado = null;  // Considera "Qualquer um" como não filtro
+        }
+
+        // Buscar o ID do binder selecionado (se houver)
+        Integer idBinder = null;
+        if (binderSelecionado != null && !binderSelecionado.isEmpty()) {
+            BinderDAO binderDAO = new BinderDAO();
+            idBinder = binderDAO.buscarIdBinderPorNome(binderSelecionado, user.getId());
+            if (idBinder == -1) {
+                mostrarAlerta(Alert.AlertType.ERROR, "Erro", "Binder não encontrado.");
+                return;
+            }
+        }
+
+        // Buscar cartas com base nos filtros
+        List<Carta> cartasFiltradas = cartaDAO.buscarCartasFiltradas(user.getId(), nomeCarta, raridadeSelecionada, temaSelecionado, idBinder);
+
+        if (cartasFiltradas.isEmpty()) {
+            mostrarAlerta(Alert.AlertType.INFORMATION, "Nenhuma carta encontrada", "Nenhuma carta encontrada com os filtros selecionados.");
+            carregarCartasUsuarioAtual(); // Recarrega todas as cartas do usuário
+            return;
+        }
+
+        // Atualizar a exibição das cartas
+        tilePaneCartas.getChildren().clear();
+        for (Carta carta : cartasFiltradas) {
+            VBox cartaContainer = criarCartaContainer(carta);
+            if (cartaContainer != null) {
+                tilePaneCartas.getChildren().add(cartaContainer);
+            }
+        }
+    } catch (SQLException e) {
+        mostrarAlerta(Alert.AlertType.ERROR, "Erro ao filtrar cartas", "Ocorreu um erro ao aplicar os filtros: " + e.getMessage());
+    }
+}
+
+
+    @FXML
+    private void resetCards(){
+        carregarCartasUsuarioAtual();
+    }
     
 }

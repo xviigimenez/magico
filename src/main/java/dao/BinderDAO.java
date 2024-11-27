@@ -165,5 +165,52 @@ public class BinderDAO implements DAO<Binder> {
         return false;  // Nome não existe
     }
     
+//  Responsavel por usar o nome que esta no comboBox(binderBox) em uma pesquisa na tabela colecoes para buscar o id respectivo daquele nome
+    public int buscarIdBinderPorNome(String nome, int idUsuario) {
+        String sql = "SELECT id FROM binder WHERE nome = ? AND id_user = ?";
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL);
+             PreparedStatement pstmt = connection.prepareStatement(sql)) {
+
+            pstmt.setString(1, nome);
+            pstmt.setInt(2, idUsuario);
+            ResultSet rs = pstmt.executeQuery();
+
+            if (rs.next()) {
+                return rs.getInt("id");  // Retorna o ID do binder
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return -1;  // Retorna -1 se não encontrar o binder
+    }
+   
+
+ public Binder buscarBinderPorNome(String nome, int idUsuario) throws SQLException {
+    String sql = "SELECT * FROM binder WHERE nome = ? AND id_user = ?";
+    Binder binder = null;
+
+    try (Connection conn = DriverManager.getConnection(DATABASE_URL);
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, nome);
+        stmt.setInt(2, idUsuario);
+
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            binder = new Binder(
+                rs.getInt("id"),
+                rs.getString("nome"),
+                rs.getString("descricao"),
+                rs.getInt("id_user")
+            );
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    return binder;
+}
+
 }
 
