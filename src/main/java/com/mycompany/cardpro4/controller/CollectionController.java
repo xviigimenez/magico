@@ -42,7 +42,7 @@ public class CollectionController implements Initializable {
     @FXML 
     private Label lblUserName;
     @FXML 
-    private Button btnExcluirCarta, btnCadastrarCarta, btnFilterCards;
+    private Button btnExcluirCarta, btnCadastrarCarta, btnFilterCards, btnTrocas;
     @FXML 
     private ScrollPane scrollPaneCartas;
     @FXML 
@@ -147,6 +147,11 @@ public class CollectionController implements Initializable {
     @FXML
     private void goToExcluir(ActionEvent event) {
         abrirNovaTela("/fxml/excluirCarta.fxml", "Excluir");
+    }
+
+    @FXML
+    private void goToTrocas(ActionEvent event) {
+        abrirNovaTela("/fxml/trocas.fxml", "Trocas");
     }
 
     private void abrirNovaTela(String fxml, String titulo) {

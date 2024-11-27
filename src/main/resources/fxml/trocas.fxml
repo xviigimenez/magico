@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="581.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.TrocasController">
+   <children>
+       
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="30.0" text="&lt;" />
+      
+      <TextField fx:id="nomeField" layoutX="312.0" layoutY="110.0" prefHeight="26.0" prefWidth="210.0" promptText="Nome do Usuário" />
+      
+      <ComboBox fx:id="raridadeBox1" layoutX="89.0" layoutY="167.0" prefWidth="150.0" promptText="Raridade 1" />
+      <ComboBox fx:id="raridadeBox2" layoutX="337.0" layoutY="167.0" prefWidth="150.0" promptText="Raridade 2" />
+
+      <ComboBox fx:id="temaBox1" layoutX="89.0" layoutY="247.0" prefWidth="150.0" promptText="Tema 1" />
+      <ComboBox fx:id="temaBox2" layoutX="337.0" layoutY="247.0" prefWidth="150.0" promptText="Tema 2" />
+
+      <ComboBox fx:id="cartaBox1" layoutX="89.0" layoutY="333.0" prefWidth="150.0" promptText="Carta 1" />
+      <ComboBox fx:id="cartaBox2" layoutX="337.0" layoutY="333.0" prefWidth="150.0" promptText="Carta 2" />
+
+      <Line endX="282.6999816894531" startX="282.70001220703125" startY="519.0" />
+      <Button fx:id="trocaBtn" layoutX="234.0" layoutY="442.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Trocar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnRefresh" layoutX="127.0" layoutY="297.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" text="Refresh" onAction="#handleRefreshButton"/>
+   </children>
+</AnchorPane>
