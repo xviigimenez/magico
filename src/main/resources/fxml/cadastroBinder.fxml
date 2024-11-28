@@ -17,9 +17,10 @@
         <URL value="@/styles/cadastrobinder.css" />
     </stylesheets>
    <children>
-      <GridPane layoutX="21.0" layoutY="55.0" prefHeight="186.0" prefWidth="296.0">
+      <GridPane layoutX="21.0" layoutY="62.0" prefHeight="200.0" prefWidth="296.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -27,9 +28,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="txtBinderName" promptText="Nome" />
-            <TextArea fx:id="txtBinderDescription" prefHeight="64.0" prefWidth="217.0" promptText="Descrição" GridPane.rowIndex="1" />
-            <Button fx:id="btnSaveBinder" mnemonicParsing="false" onAction="#handleSaveBinder" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #613ce8;" text="Salvar" textFill="WHITE" GridPane.rowIndex="2">
+            <TextField fx:id="txtBinderName" promptText="Nome" GridPane.columnSpan="2" />
+            <TextArea fx:id="txtBinderDescription" prefHeight="64.0" prefWidth="217.0" promptText="Descrição" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+            <Button fx:id="btnSaveBinder" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#handleSaveBinder" prefHeight="26.0" prefWidth="107.0" style="-fx-background-color: #613ce8;" text="Salvar" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -37,13 +38,18 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button fx:id="btnBack" mnemonicParsing="false" onAction="#goToCadastroCarta" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE" GridPane.rowIndex="2" />
          </children>
       </GridPane>
-      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCadastroCarta" text="&lt;" />
       <AnchorPane id="AnchorPane" layoutX="339.0" prefHeight="288.0" prefWidth="207.0" style="-fx-background-image: url(&quot;cartas.png&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 450px;" styleClass="mainFxmlClass">
          <stylesheets>
             <URL value="@/styles/cadastrobinder.css" />
          </stylesheets>
       </AnchorPane>
+      <Label layoutX="22.0" layoutY="27.0" text="Cadastro de Binder">
+         <font>
+            <Font name="Consolas" size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

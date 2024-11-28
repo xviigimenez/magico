@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -10,7 +17,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="581.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroCartaController">
+<AnchorPane id="AnchorPane" prefHeight="519.0" prefWidth="581.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroCartaController">
     <stylesheets>
         <URL value="@/styles/cadastrocarta.css" />
     </stylesheets>
@@ -23,8 +30,8 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnBack" layoutX="44.0" layoutY="428.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE" />
-      <Button fx:id="addButton" layoutX="431.0" layoutY="428.0" mnemonicParsing="false" onAction="#cadastrarCarta" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Adicionar" textFill="WHITE">
+      <Button fx:id="btnBack" layoutX="44.0" layoutY="448.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE" />
+      <Button fx:id="addButton" layoutX="428.0" layoutY="448.0" mnemonicParsing="false" onAction="#cadastrarCarta" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Adicionar" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -36,9 +43,12 @@
       <Button fx:id="selectImageButton" layoutX="325.0" layoutY="359.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: #613ce8;" text="Selecionar imagem..." textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
-         </cursor></Button>
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <ImageView fx:id="imagePreview" fitHeight="224.0" fitWidth="193.0" layoutX="335.0" layoutY="70.0" preserveRatio="true" />
-      <Label layoutX="201.0" layoutY="31.0" style="-fx-background-color: #ffffff;" text="Adicione uma Carta">
+      <Label layoutX="44.0" layoutY="35.0" text="Adicione uma Carta">
          <font>
             <Font name="Consolas" size="18.0" />
          </font>
