@@ -32,7 +32,7 @@ public class DatabaseSetupDAO {
                                      "email TEXT UNIQUE NOT NULL" +
                                      ");";
 
-        // SQL para criar a tabela de coleções
+        // SQL para criar a tabela de coleções(Binder)
         String createBinderTableSQL = "CREATE TABLE IF NOT EXISTS binder (" +
                                            "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                                            "nome TEXT NOT NULL," +
@@ -54,20 +54,22 @@ public class DatabaseSetupDAO {
                              "FOREIGN KEY (id_colecao) REFERENCES colecoes(id) ON DELETE SET NULL" +
                              ");";
 
-        // SQL para criar a tabela de trocas
-	String createTrocasTableSQL = "CREATE TABLE IF NOT EXISTS trocas (" +
-           		     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-           		     "id_carta1 INTEGER NOT NULL," +
-           		     "id_carta2 INTEGER," +
-           		     "id_user1 INTEGER NOT NULL," +
-           		     "id_user2 INTEGER," +
-		             "sucesso BOOLEAN DEFAULT FALSE," + // Caso a troca já foi realizada
-			     "descricao DESCRIPTION," + // O usuário especifica o que quer em troca de sua carta
-		             "FOREIGN KEY (id_carta1) REFERENCES cartas(id)," +
-       		             "FOREIGN KEY (id_carta2) REFERENCES cartas(id)," +
-		             "FOREIGN KEY (id_user1) REFERENCES usuarios(id)," +
-           		     "FOREIGN KEY (id_user2) REFERENCES usuarios(id)" +
-           		     ");";
+                // SQL para criar a tabela de trocas
+        String createTrocasTableSQL = "CREATE TABLE IF NOT EXISTS trocas (" +
+                                          "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                          "id_carta1 INTEGER NOT NULL," +
+                                          "id_carta2 INTEGER," +
+                                          "id_user1 INTEGER NOT NULL," +
+                                          "id_user2 INTEGER," +
+                                          "raridadeMin TEXT NOT NULL," +
+                                          "concluido BOOLEAN DEFAULT FALSE," +
+                                          "description TEXT NOT NULL," +
+                                          "isCartaOferecida BOOLEAN DEFAULT FALSE," +
+                                          "FOREIGN KEY (id_carta1) REFERENCES cartas(id)," +
+                                          "FOREIGN KEY (id_carta2) REFERENCES cartas(id)," +
+                                          "FOREIGN KEY (id_user1) REFERENCES usuarios(id)," +
+                                          "FOREIGN KEY (id_user2) REFERENCES usuarios(id)" +
+                                          ");";
 
 
         try (Statement stmt = connection.createStatement()) {
@@ -82,6 +84,11 @@ public class DatabaseSetupDAO {
             // Cria a tabela de cartas
             stmt.execute(createCardsTableSQL);
             System.out.println("Tabela de cartas criada (se não existia).");
+            
+            
+             // Cria a tabela de trocas
+            stmt.execute(createTrocasTableSQL);
+            System.out.println("Tabela de trocas criada (se não existia).");
         } catch (SQLException e) {
             e.printStackTrace(); // Exibe erro no console caso falhe
         }
