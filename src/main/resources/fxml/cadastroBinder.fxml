@@ -40,5 +40,10 @@
          </children>
       </GridPane>
       <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#goToCadastroCarta" text="&lt;" />
+      <AnchorPane id="AnchorPane" layoutX="339.0" prefHeight="288.0" prefWidth="207.0" style="-fx-background-image: url(&quot;cartas.png&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 450px;" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@/styles/cadastrobinder.css" />
+         </stylesheets>
+      </AnchorPane>
    </children>
 </AnchorPane>

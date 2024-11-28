@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,23 +14,22 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-image: url(&quot;unf-59-super-duper-lost.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-position: 300px; -fx-background-size: 544px 400px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="700.0" style="-fx-background-image: url(&quot;unf-59-super-duper-lost.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-position: 300px; -fx-background-size: 544px 400px;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="446.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
          <children>
             <TextField fx:id="txtName" layoutX="29.0" layoutY="96.0" promptText="Nome" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="txtEmail" layoutX="230.0" layoutY="96.0" promptText="E-mail" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="txtPassword" layoutX="29.0" layoutY="148.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
-            <TextField fx:id="txtTel" layoutX="230.0" layoutY="148.0" prefHeight="28.0" prefWidth="159.0" promptText="Telefone" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
+            <TextField fx:id="txtTel" layoutX="29.0" layoutY="148.0" prefHeight="28.0" prefWidth="149.0" promptText="Telefone" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField fx:id="txtConfirmPassword" layoutX="29.0" layoutY="200.0" promptText="Confirme a senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
-            <Button fx:id="btnCreateAccount" graphicTextGap="2.0" layoutX="344.0" layoutY="313.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="40.0" prefWidth="71.0" style="-fx-background-color: #613ce8;" text="Criar" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="12.0" />
-               </font>
+            <Button fx:id="btnBack" layoutX="38.0" layoutY="285.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="41.0" prefWidth="72.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="btnBack" layoutX="45.0" layoutY="312.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="41.0" prefWidth="72.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
+            <Button fx:id="btnCreateAccount" graphicTextGap="2.0" layoutX="337.0" layoutY="286.0" mnemonicParsing="false" onAction="#registerUser" prefHeight="40.0" prefWidth="71.0" style="-fx-background-color: #613ce8;" text="Criar" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
@@ -34,6 +38,7 @@
                   <Font name="Consolas" size="18.0" />
                </font>
             </Label>
+            <PasswordField fx:id="txtPassword" layoutX="229.0" layoutY="149.0" prefHeight="27.0" prefWidth="152.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
          </children>
       </AnchorPane>
    </left>
