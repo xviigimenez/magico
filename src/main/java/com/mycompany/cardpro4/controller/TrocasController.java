@@ -171,6 +171,16 @@ public class TrocasController {
         tblTodasTrocas.setItems(observableTrocas);  // Atribui os dados à tabela
    }
 
+    
+    
+    
+    
+    //   -----------------------------------     BOTÕES     ---------------------------------------------
+    
+    
+    
+    
+    
     @FXML
     private void goToCadastroTrocas(ActionEvent event) {
         try {
@@ -201,8 +211,6 @@ public class TrocasController {
             }
     
     }
-
-    // Método para mostrar alertas
     private void showAlert(String title, String message, AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
