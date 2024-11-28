@@ -44,6 +44,7 @@ public class TrocasController {
         e.printStackTrace();
         return -1; // Retorna -1 se ocorrer um erro ao ler o JSON
     }
+    
 }
 
 

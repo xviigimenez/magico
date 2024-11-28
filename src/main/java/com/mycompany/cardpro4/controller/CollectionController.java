@@ -56,6 +56,9 @@ public class CollectionController implements Initializable {
             exibirNomeUsuario();
             carregarCartasUsuarioAtual(); 
             configurarComboBoxes();
+            
+            temaBox.setVisible(false);
+            raridadeBox.setVisible(false);
         });
     }
 
@@ -136,7 +139,7 @@ public class CollectionController implements Initializable {
         alert.setContentText(mensagem);
         alert.showAndWait();
     }
-
+    
     @FXML
     private void goToCadastroCarta(ActionEvent event) {
         abrirNovaTela("/fxml/cadastroCarta.fxml", "Cadastro");
@@ -158,9 +161,9 @@ public class CollectionController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource(fxml));
             Scene scene = new Scene(root);
             Stage newStage = new Stage();
+            newStage.setResizable(false);
             newStage.setTitle(titulo);
             newStage.setScene(scene);
-	    // Centraliza a janela
 	    newStage.centerOnScreen();
             newStage.show();
             currentStage.close();
@@ -170,6 +173,15 @@ public class CollectionController implements Initializable {
         }
     }
 
+    @FXML
+    private void mostrarCombos(ActionEvent event) {
+        // Alternar visibilidade dos ComboBoxes
+        boolean temaBoxVisivel = temaBox.isVisible();
+        boolean raridadeBoxVisivel = raridadeBox.isVisible();
+    
+        temaBox.setVisible(!temaBoxVisivel);
+        raridadeBox.setVisible(!raridadeBoxVisivel);
+    }
     @FXML
     private void carregarColecoes() {
         User user = Session.getUser();

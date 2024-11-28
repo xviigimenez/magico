@@ -210,23 +210,13 @@ public class CadastroCartaController {
     @FXML
     private void goToCadastroBinder(ActionEvent event) {
         try {
-                // Responsável por carregar a tela principal
-                Parent root = FXMLLoader.load(getClass().getResource("/fxml/cadastroBinder.fxml"));
-
-                // Responsável por configurar a nova cena
-                Scene scene = new Scene(root);
-
-                // Responsável por obter o estágio atual
-                Stage stage = (Stage) addCollectionButton.getScene().getWindow();
-
-                // Responsável por configurar o palco com a cena principal
-                stage.setScene(scene);
-
-	    	// Centraliza a janela principal
-	    	stage.centerOnScreen();
-
-                // Responsável por exibir a nova tela
-                stage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/cadastroBinder.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) addCollectionButton.getScene().getWindow();
+            stage.setResizable(false);
+            stage.setScene(scene);
+	    stage.centerOnScreen();
+            stage.show();
             } catch (IOException e) {
                 showAlert("Erro", "Erro ao carregar a tela de criacao de Binder.", Alert.AlertType.ERROR);
             }
@@ -240,22 +230,12 @@ public class CadastroCartaController {
     private void goToCollection(ActionEvent event) {
         
                 try {
-                // Responsável por carregar a tela principal
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
-
-                // Responsável por configurar a nova cena
                 Scene scene = new Scene(root);
-
-                // Responsável por obter o estágio atual
                 Stage stage = (Stage) addCollectionButton.getScene().getWindow();
-
-                // Responsável por configurar o palco com a cena principal
+                stage.setResizable(false);
                 stage.setScene(scene);
-
-	    	// Centraliza a janela principal
 	    	stage.centerOnScreen();
-
-                // Responsável por exibir a nova tela
                 stage.show();
             } catch (IOException e) {
                 showAlert("Erro", "Erro ao carregar o Menu .", Alert.AlertType.ERROR);

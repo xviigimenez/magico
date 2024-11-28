@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="550.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.mycompany.cardpro4.controller.ExcluirCartaController">
+<AnchorPane id="AnchorPane" prefHeight="317.0" prefWidth="550.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.ExcluirCartaController">
     <stylesheets>
         <URL value="@/styles/excluircarta.css" />
     </stylesheets>
    <children>
-      <ComboBox fx:id="tipoBox" layoutX="49.0" layoutY="129.0" prefHeight="26.0" prefWidth="397.0" promptText="Selecione a opção desejada" />
-      <Button fx:id="btnExcluir" layoutX="342.0" layoutY="232.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="143.0" text="Excluir" />
-      <Label layoutX="86.0" layoutY="53.0" text="Deseja excluir um Binder ou uma Carta?">
+      <ComboBox fx:id="tipoBox" layoutX="76.0" layoutY="131.0" prefHeight="26.0" prefWidth="397.0" promptText="Selecione a opção desejada" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <Button fx:id="btnExcluir" layoutX="421.0" layoutY="236.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Excluir" textFill="WHITE" />
+      <ComboBox fx:id="listaBox" layoutX="76.0" layoutY="174.0" prefHeight="26.0" prefWidth="397.0" promptText="Lista" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <Button fx:id="btnBack" layoutX="45.0" layoutY="236.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE" />
+      <Label layoutX="92.0" layoutY="36.0" style="-fx-background-color: #ffffff;" text="Deseja excluir um Binder ou uma Carta?">
          <font>
-            <Font size="20.0" />
+            <Font name="Consolas" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="listaBox" layoutX="50.0" layoutY="176.0" prefHeight="26.0" prefWidth="397.0" promptText="Lista" />
-      <Button fx:id="btnBack" layoutX="18.0" layoutY="11.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="36.0" prefWidth="26.0" text="&lt;" />
    </children>
 </AnchorPane>

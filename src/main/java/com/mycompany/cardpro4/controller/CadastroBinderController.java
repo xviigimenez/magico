@@ -88,22 +88,12 @@ private void handleSaveBinder() {
     @FXML
     private void goToCadastroCarta() {
         try {
-            // Responsável por carregar a tela principal
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/cadastroCarta.fxml"));
-
-            // Responsável por configurar a nova cena
             Scene scene = new Scene(root);
-
-            // Responsável por obter o estágio atual
             Stage stage = (Stage) btnBack.getScene().getWindow();
-
-            // Responsável por configurar o palco com a cena principal
+            stage.setResizable(false);
             stage.setScene(scene);
-
-	    // Centraliza a janela principal
 	    stage.centerOnScreen();
-
-            // Responsável por exibir a nova tela
             stage.show();
         } catch (IOException e) {
             showAlert("Erro", "Erro ao carregar a tela principal.", Alert.AlertType.ERROR);

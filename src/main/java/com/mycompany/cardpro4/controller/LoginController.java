@@ -66,29 +66,18 @@ public class LoginController {
     @FXML
     public void goToCadastro() {
         try {
-            // Responsável por obter o estágio (janela) atual
             Stage currentStage = (Stage) btn_CreateAccount.getScene().getWindow();
-
-            // Responsável por carregar o arquivo FXML do formulário de cadastro
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/cadastro.fxml"));
-
-            // Responsável por criar uma nova cena para o formulário de cadastro
             Scene scene = new Scene(root);
-
-            // Responsável por criar um novo palco (janela) para exibir o formulário de cadastro
             Stage newStage = new Stage();
             newStage.setTitle("Cadastro");
             newStage.setResizable(false);
             newStage.setScene(scene);
-
-            // Responsável por exibir o novo formulário
             newStage.show();
-
-            // Responsável por fechar o formulário de login
             currentStage.close();
 
         } catch (IOException e) {
-            e.printStackTrace(); // Exibe erro no console caso falhe
+            e.printStackTrace();
             showAlert("Erro", "Erro ao carregar o formulário de cadastro.", AlertType.ERROR);
         }
     }
@@ -96,22 +85,12 @@ public class LoginController {
     // Responsável por abrir a tela principal após login
     private void openMainScreen() {
         try {
-            // Responsável por carregar a tela principal
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
-
-            // Responsável por configurar a nova cena
             Scene scene = new Scene(root);
-
-            // Responsável por obter o estágio atual
             Stage stage = (Stage) btn_Login.getScene().getWindow();
-
-            // Responsável por configurar o palco com a cena principal
+            stage.setTitle("Collection");
             stage.setScene(scene);
-
-	    // Centraliza a janela principal
 	    stage.centerOnScreen();
-
-            // Responsável por exibir a nova tela
             stage.show();
         } catch (IOException e) {
             showAlert("Erro", "Erro ao carregar a tela principal.", AlertType.ERROR);

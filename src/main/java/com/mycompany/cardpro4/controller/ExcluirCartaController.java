@@ -43,22 +43,12 @@ public class ExcluirCartaController implements Initializable {
     @FXML
     private void goToCollection(ActionEvent event) {
         try {
-            // Carrega a tela principal
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
-
-            // Configura a nova cena
             Scene scene = new Scene(root);
-
-            // Obtém o estágio atual
             Stage stage = (Stage) btnBack.getScene().getWindow();
-
-            // Configura o palco com a nova cena
+            stage.setResizable(false);
             stage.setScene(scene);
-
-	    // Centraliza a janela
 	    stage.centerOnScreen();
-
-            // Exibe a nova tela
             stage.show();
         } catch (IOException e) {
             showAlert("Erro", "Erro ao carregar o Menu.", Alert.AlertType.ERROR);

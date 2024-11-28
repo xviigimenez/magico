@@ -33,27 +33,15 @@ public class CadastroController {
     @FXML
     public void goToLogin() {
         try {
-            // Responsável por obter o estágio (janela) atual
             Stage currentStage = (Stage) btnBack.getScene().getWindow();
-
-            // Responsável por carregar o arquivo FXML da tela de login
             Parent root = FXMLLoader.load(getClass().getResource("/com/mycompany/cardpro4/login.fxml"));
-
-            // Responsável por criar uma nova cena para o login
             Scene scene = new Scene(root);
-
-            // Responsável por criar um novo palco (janela) para exibir o login
             Stage newStage = new Stage();
-	    // Adiciona um título para a janela
+            newStage.setResizable(false);
             newStage.setTitle("Login");
             newStage.setScene(scene);
-	    // Centraliza a janela principal
 	    newStage.centerOnScreen();
-
-            // Responsável por exibir o novo formulário
             newStage.show();
-
-            // Responsável por fechar o estágio atual (de cadastro)
             currentStage.close();
 
         } catch (IOException e) {
