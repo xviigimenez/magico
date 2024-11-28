@@ -233,6 +233,7 @@ public class CadastroCartaController {
                 Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = (Stage) addCollectionButton.getScene().getWindow();
+                stage.setTitle("Collection");
                 stage.setResizable(false);
                 stage.setScene(scene);
 	    	stage.centerOnScreen();

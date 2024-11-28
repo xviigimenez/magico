@@ -46,6 +46,7 @@ public class ExcluirCartaController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) btnBack.getScene().getWindow();
+            stage.setTitle("Collection");
             stage.setResizable(false);
             stage.setScene(scene);
 	    stage.centerOnScreen();
