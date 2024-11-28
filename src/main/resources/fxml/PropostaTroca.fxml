@@ -13,10 +13,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="208.0" prefWidth="540.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroPropostaTrocaController">
-    <stylesheets>
-        <URL value="@/styles/cadastrotrocas.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="208.0" prefWidth="540.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.PropostaTrocaController">
    <children>
       <ComboBox fx:id="cartasBox" layoutX="36.0" layoutY="77.0" prefHeight="27.0" prefWidth="220.0" promptText="Selecione a Carta " style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
       <Label layoutX="36.0" layoutY="27.0" prefHeight="18.0" prefWidth="239.0" text="Fazer uma proposta">

@@ -83,6 +83,8 @@ public class TrocasController {
     @FXML
     private Button btnExcluirTroca;
     @FXML
+    private Button btnFazerProposta;
+    @FXML
     private Button btnUser;
     @FXML
     private Button btnTrocas;
@@ -170,6 +172,24 @@ public class TrocasController {
         ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasList);
         tblTodasTrocas.setItems(observableTrocas);  // Atribui os dados à tabela
    }
+    @FXML
+    private void goToPropostaTrocas(ActionEvent event) {
+        if (tblTodasTrocas.getSelectionModel().getSelectedItem() == null) {
+        // Mostra um alerta caso nenhum item esteja selecionado
+        showAlert("Atenção", "Por favor, selecione uma troca antes de fazer uma proposta.", Alert.AlertType.WARNING);
+        return;
+    }
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/propostaTroca.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnFazerProposta.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Erro", "Erro ao carregar a tela de cadastro de trocas.", AlertType.ERROR);
+        }
+    }
 
     
     
