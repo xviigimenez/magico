@@ -95,7 +95,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnFazerProposta" layoutX="1090.0" layoutY="379.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Fazer Proposta" textFill="WHITE">
+      <Button fx:id="btnFazerProposta" layoutX="1092.0" layoutY="391.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: #613ce8;" text="Fazer Proposta..." textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
