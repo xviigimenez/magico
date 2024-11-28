@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -7,16 +13,29 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroTrocasController">
+<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="699.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CadastroTrocasController">
     <stylesheets>
         <URL value="@/styles/cadastrotrocas.css" />
     </stylesheets>
    <children>
-      <ComboBox fx:id="cartasBox" layoutX="114.0" layoutY="106.0" prefHeight="26.0" prefWidth="204.0" promptText="Selecione a Carta " />
-      <ComboBox fx:id="raridadeMinBox" layoutX="114.0" layoutY="146.0" prefHeight="26.0" prefWidth="204.0" promptText="Raridade Mínima" />
-      <Label layoutX="78.0" layoutY="27.0" prefHeight="18.0" prefWidth="239.0" text="Crie uma troca" />
-      <Button fx:id="btnCriarTroca" layoutX="414.0" layoutY="331.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="121.0" text="Criar Troca" />
-      <TextArea fx:id="txtDescription" layoutX="114.0" layoutY="200.0" prefHeight="61.0" prefWidth="284.0" promptText="Escreva algo sobre o que deseja receber em troca" text="O que voce espera receber? (muda para algo que fale com o user , nao deixe somente descricao) pense fora da caixinha!" />
-      <Button fx:id="btnBack" layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onAction="#goToTrocas" text="&lt;" />
+      <ComboBox fx:id="cartasBox" layoutX="36.0" layoutY="69.0" prefHeight="27.0" prefWidth="323.0" promptText="Selecione a Carta " style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <ComboBox fx:id="raridadeMinBox" layoutX="36.0" layoutY="109.0" prefHeight="27.0" prefWidth="323.0" promptText="Raridade Mínima" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <Label layoutX="36.0" layoutY="27.0" prefHeight="18.0" prefWidth="239.0" text="Crie uma troca">
+         <font>
+            <Font name="Consolas" size="18.0" />
+         </font></Label>
+      <Button fx:id="btnCriarTroca" layoutX="238.0" layoutY="276.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="121.0" style="-fx-background-color: #613ce8;" text="Criar Troca" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextArea fx:id="txtDescription" layoutX="36.0" layoutY="153.0" prefHeight="99.0" prefWidth="323.0" promptText="O que você espera receber em troca?" />
+      <Button fx:id="btnBack" layoutX="144.0" layoutY="276.0" mnemonicParsing="false" onAction="#goToTrocas" prefHeight="34.0" prefWidth="75.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <AnchorPane layoutX="399.0" prefHeight="333.0" prefWidth="300.0" style="-fx-background-image: url(&quot;sld-1768-careful-study.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 400px;" />
    </children>
 </AnchorPane>
