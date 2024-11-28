@@ -161,82 +161,90 @@ public Carta consultar(int id) {
     return cartas;
 }
     
-//    public List<Carta> buscarCartasFiltradas(int idUsuario, String nomeCarta, String raridade, String tema, String binder) throws SQLException {
-//        List<Carta> cartas = new ArrayList<>();
-//
-//        // Query SQL com filtros
-//        StringBuilder query = new StringBuilder("SELECT * FROM cartas WHERE id_user = ?");
-//        
-//        if (nomeCarta != null && !nomeCarta.isEmpty()) {
-//            query.append(" AND nome LIKE ?");
-//        }
-//        if (raridade != null && !raridade.isEmpty()) {
-//            query.append(" AND raridade = ?");
-//        }
-//        if (tema != null && !tema.isEmpty()) {
-//            query.append(" AND tema = ?");
-//        }
-//        if (binder != null && !binder.isEmpty()) {
-//            query.append(" AND binder = ?");
-//        }
-//
-//        try (PreparedStatement stmt = getConnection().prepareStatement(query.toString())) {
-//            int index = 1;
-//            stmt.setInt(index++, idUsuario);
-//            
-//            if (nomeCarta != null && !nomeCarta.isEmpty()) {
-//                stmt.setString(index++, "%" + nomeCarta + "%");
-//            }
-//            if (raridade != null && !raridade.isEmpty()) {
-//                stmt.setString(index++, raridade);
-//            }
-//            if (tema != null && !tema.isEmpty()) {
-//                stmt.setString(index++, tema);
-//            }
-//            if (binder != null && !binder.isEmpty()) {
-//                stmt.setString(index++, binder);
-//            }
-//
-//            ResultSet rs = stmt.executeQuery();
-//            while (rs.next()) {
-//            Carta carta = new Carta(rs.getInt("id"), rs.getString("nome"), rs.getString("raridade"), rs.getString("tema"), rs.getString("id_colecao"), rs.getBytes("imagem"));
-//                cartas.add(carta);
-//            }
-//        }
-//
-//        return cartas;
-//    }
     
-  public List<Carta> buscarCartasFiltradas(int idUsuario, String nomeCarta, String raridade, String tema, String idBinder) throws SQLException {
-    StringBuilder sql = new StringBuilder("SELECT * FROM cartas WHERE id_user = ?");
-    List<Object> params = new ArrayList<>();
-    params.add(idUsuario);
+//    Antigo buscarCartasFiltradas sem a consulta de binder
+// public List<Carta> buscarCartasFiltradas(int idUsuario, String nome, String raridade, String tema) throws SQLException {
+//    List<Carta> cartas = new ArrayList<>();
+//    StringBuilder query = new StringBuilder("SELECT * FROM cartas WHERE id_user = ?");
+//
+//    // Adicionar filtros dinamicamente
+//    if (nome != null && !nome.isEmpty()) {
+//        query.append(" AND LOWER(nome) LIKE LOWER(?)");
+//    }
+//    if (raridade != null) {
+//        query.append(" AND raridade = ?");
+//    }
+//    if (tema != null) {
+//        query.append(" AND tema = ?");
+//    }
+//
+//    try (Connection conn = getConnection();
+//         PreparedStatement stmt = conn.prepareStatement(query.toString())) {
+//
+//        int paramIndex = 1;
+//        stmt.setInt(paramIndex++, idUsuario);
+//
+//        if (nome != null && !nome.isEmpty()) {
+//            stmt.setString(paramIndex++, "%" + nome + "%");
+//        }
+//        if (raridade != null) {
+//            stmt.setString(paramIndex++, raridade);
+//        }
+//        if (tema != null) {
+//            stmt.setString(paramIndex++, tema);
+//        }
+//
+//        ResultSet rs = stmt.executeQuery();
+//        while (rs.next()) {
+//            Carta carta = new Carta(
+//                rs.getInt("id"),
+//                rs.getString("nome"),
+//                rs.getString("raridade"),
+//                rs.getString("tema"),
+//                rs.getString("id_colecao"),
+//                rs.getBytes("imagem")
+//            );
+//            cartas.add(carta);
+//        }
+//    }
+//    return cartas;
+//}
 
-    // Adiciona condições de filtro
-    if (!nomeCarta.isEmpty()) {
-        sql.append(" AND nome LIKE ?");
-        params.add("%" + nomeCarta + "%");
+public List<Carta> buscarCartasFiltradas(int idUsuario, String nome, String raridade, String tema, Integer idBinder) throws SQLException {
+    List<Carta> cartas = new ArrayList<>();
+    StringBuilder query = new StringBuilder("SELECT * FROM cartas WHERE id_user = ?");
+
+    // Adicionar filtros dinamicamente
+    if (nome != null && !nome.isEmpty()) {
+        query.append(" AND LOWER(nome) LIKE LOWER(?)");
     }
-    if (!raridade.equals("Qualquer um")) {
-        sql.append(" AND raridade = ?");
-        params.add(raridade);
+    if (raridade != null) {
+        query.append(" AND raridade = ?");
     }
-    if (!tema.equals("Qualquer um")) {
-        sql.append(" AND tema = ?");
-        params.add(tema);
+    if (tema != null) {
+        query.append(" AND tema = ?");
     }
     if (idBinder != null) {
-        sql.append(" AND id_colecao = ?");
-        params.add(idBinder);
+        query.append(" AND id_colecao = ?");
     }
 
-    List<Carta> cartas = new ArrayList<>();
     try (Connection conn = getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+         PreparedStatement stmt = conn.prepareStatement(query.toString())) {
 
-        // Preenche os parâmetros na consulta
-        for (int i = 0; i < params.size(); i++) {
-            stmt.setObject(i + 1, params.get(i));
+        int paramIndex = 1;
+        stmt.setInt(paramIndex++, idUsuario);
+
+        if (nome != null && !nome.isEmpty()) {
+            stmt.setString(paramIndex++, "%" + nome + "%");
+        }
+        if (raridade != null) {
+            stmt.setString(paramIndex++, raridade);
+        }
+        if (tema != null) {
+            stmt.setString(paramIndex++, tema);
+        }
+        if (idBinder != null) {
+            stmt.setInt(paramIndex++, idBinder);
         }
 
         ResultSet rs = stmt.executeQuery();
@@ -255,6 +263,37 @@ public Carta consultar(int id) {
     return cartas;
 }
 
+public void excluirCartasPorBinder(int idBinder) throws SQLException {
+    String sql = "DELETE FROM cartas WHERE id_colecao = ?";
+
+    try (Connection conn = getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setInt(1, idBinder);
+        stmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+
+
+public int buscarIdPorNome(String nomeCarta) throws SQLException {
+    String sql = "SELECT id FROM cartas WHERE nome = ?";
+    
+    try (Connection conn = DriverManager.getConnection(URL);
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+        stmt.setString(1, nomeCarta);
+
+        try (ResultSet rs = stmt.executeQuery()) {
+            if (rs.next()) {
+                return rs.getInt("id"); // Retorna o ID da carta encontrada
+            } else {
+                throw new SQLException("Carta com o nome '" + nomeCarta + "' não encontrada.");
+            }
+        }
+    }
+}
 
 
 }

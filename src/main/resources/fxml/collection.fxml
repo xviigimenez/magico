@@ -59,9 +59,14 @@
       <ComboBox fx:id="binderBox" layoutX="718.0" layoutY="80.0" prefHeight="26.0" prefWidth="88.0" promptText="Binder" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
       <ComboBox fx:id="raridadeBox" layoutX="466.0" layoutY="45.0" prefHeight="26.0" prefWidth="119.0" promptText="Raridade" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
       <TextField fx:id="txtCartaName" layoutX="72.0" layoutY="80.0" promptText="Busca" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
-      <Button fx:id="btnFilterCards" layoutX="222.0" layoutY="81.0" mnemonicParsing="false" style="-fx-background-color: #613ce8;" text="🔎" textFill="WHITE">
+      <Button fx:id="btnFilterCards" layoutX="222.0" layoutY="81.0" mnemonicParsing="false" style="-fx-background-color: #613ce8;" text="🔎" onAction="#filtrarCartas" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <Button fx:id="btnResetCards" layoutX="394.0" layoutY="46.0" mnemonicParsing="false" onAction="#resetCards" style="-fx-background-color: #613ce8;" text="Reset" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>
