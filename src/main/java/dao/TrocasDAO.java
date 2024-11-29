@@ -162,4 +162,14 @@ public class TrocasDAO implements DAO<Trocas> {
         stmt.executeUpdate();  // Executa a exclusão
     }
 }
+    public void atualizar(Trocas troca) throws SQLException {
+        String sql = "UPDATE trocas SET concluido = ? WHERE id = ?";
+        
+        try (Connection conn = DriverManager.getConnection(DATABASE_URL);
+        PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setBoolean(1, troca.getConcluido());
+            stmt.setInt(2, troca.getId());
+            stmt.executeUpdate();
+        }
+    }
 }

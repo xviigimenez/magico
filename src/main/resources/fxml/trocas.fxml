@@ -88,7 +88,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnNegarTroca" layoutX="480.0" layoutY="392.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Negar Troca" textFill="WHITE">
+      <Button fx:id="btnNegarTroca" layoutX="480.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleNegarTroca" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Negar Troca" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

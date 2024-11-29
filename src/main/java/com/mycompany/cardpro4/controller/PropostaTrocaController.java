@@ -141,7 +141,6 @@ public class PropostaTrocaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         carregarCartas();
         int idTroca = Contexto.getIdTrocaSelecionada();
-        lblDetalhesTroca.setText("Detalhes da troca ID: " + idTroca);
     }
 
     @FXML

@@ -1,5 +1,3 @@
-//Maua Version
-
 package com.mycompany.cardpro4.controller;
 
 import com.google.gson.JsonObject;
@@ -31,6 +29,7 @@ import javafx.scene.Scene;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TrocasController {
 
@@ -57,7 +56,6 @@ public class TrocasController {
 
     private TrocasDAO trocasDAO;
 
-    // Tabela para todas as trocas (exceto do usuário logado)
     @FXML
     private TableView<Trocas> tblTodasTrocas;
     @FXML
@@ -91,10 +89,8 @@ public class TrocasController {
     private Button btnTrocas;
 
     public void initialize() {
-        // Instancia o DAO
         trocasDAO = new TrocasDAO();
 
-        // Configura as colunas da tabela de trocas
         colId.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         colCarta1.setCellValueFactory(cellData -> cellData.getValue().idCarta1Property().asObject());
         colCarta2.setCellValueFactory(cellData -> cellData.getValue().idCarta2Property().asObject());
@@ -104,8 +100,6 @@ public class TrocasController {
         colConcluido.setCellValueFactory(cellData -> cellData.getValue().concluidoProperty().asObject());
         colDescription.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
         
-        
-        // Configura as colunas da tabela de trocas
         colIdTodos.setCellValueFactory(cellData -> cellData.getValue().idProperty().asObject());
         colCarta1Todos.setCellValueFactory(cellData -> cellData.getValue().idCarta1Property().asObject());
         colCarta2Todos.setCellValueFactory(cellData -> cellData.getValue().idCarta2Property().asObject());
@@ -115,32 +109,20 @@ public class TrocasController {
         colConcluidoTodos.setCellValueFactory(cellData -> cellData.getValue().concluidoProperty().asObject());
         colDescriptionTodos.setCellValueFactory(cellData -> cellData.getValue().descriptionProperty());
 
-        // Carrega as trocas do usuário logado
         carregarMinhasTrocas();
-
-        // Associa o método de exclusão ao botão
         btnExcluirTroca.setOnAction(this::excluirTroca);
-
-        // Carrega todas as trocas na segunda tabela (sem o filtro do usuário logado)
         carregarTrocas();
     }
 
     private void excluirTroca(ActionEvent event) {
-        // Obtém o item selecionado na tabela
         Trocas trocaSelecionada = tblTrocas.getSelectionModel().getSelectedItem();
 
         if (trocaSelecionada != null) {
             try {
-                // Exclui a troca selecionada
                 trocasDAO.excluir(trocaSelecionada);
-
-                // Exibe uma mensagem de sucesso
                 showAlert("Sucesso", "Troca excluída com sucesso!", Alert.AlertType.INFORMATION);
-
-                // Atualiza a tabela após a exclusão
                 carregarMinhasTrocas();
-                
-                carregarTrocas(); // Atualiza todas as trocas (tabela geral)
+                carregarTrocas();
             } catch (SQLException e) {
                 showAlert("Erro", "Erro ao excluir a troca: " + e.getMessage(), Alert.AlertType.ERROR);
             }
@@ -149,39 +131,60 @@ public class TrocasController {
         }
     }
 
-    // Método para carregar as trocas do usuário logado no TableView
     private void carregarMinhasTrocas() {
         User user = Session.getUser();
         if (user != null) {
-            // Carrega as trocas do usuário logado
             List<Trocas> trocasList = trocasDAO.listarPorUsuario(user.getId());
-            ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasList);
+            List<Trocas> trocasNaoConcluidas = trocasList.stream()
+                    .filter(troca -> !troca.isConcluido())
+                    .collect(Collectors.toList());
+            ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasNaoConcluidas);
             tblTrocas.setItems(observableTrocas);
         } else {
             showAlert("Erro", "Nenhum usuário logado.", Alert.AlertType.WARNING);
         }
     }
 
-    // Método para carregar todas as trocas no TableView
     private void carregarTrocas() {
-        // Carrega todas as trocas
         List<Trocas> trocasList = trocasDAO.listar();
-        if (trocasList.isEmpty()) {
+        List<Trocas> trocasNaoConcluidas = trocasList.stream()
+                .filter(troca -> !troca.isConcluido())
+                .collect(Collectors.toList());
+
+        if (trocasNaoConcluidas.isEmpty()) {
             showAlert("Aviso", "Nenhuma troca encontrada.", Alert.AlertType.INFORMATION);
         }
-        // Mapeia as trocas para o formato ObservableList
-        ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasList);
-        tblTodasTrocas.setItems(observableTrocas);  // Atribui os dados à tabela
-   }
+
+        ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasNaoConcluidas);
+        tblTodasTrocas.setItems(observableTrocas);
+    }
+
+    @FXML
+    private void handleNegarTroca() {
+        if (tblTrocas.getSelectionModel().getSelectedItem() == null) {
+            showAlert("Atenção", "Nenhuma troca selecionada!", Alert.AlertType.WARNING);
+            return;
+        }
+        Trocas trocaSelecionada = tblTrocas.getSelectionModel().getSelectedItem();
+        trocaSelecionada.setConcluido(true);
+        try {
+            trocasDAO.atualizar(trocaSelecionada);
+            carregarMinhasTrocas();
+            carregarTrocas();
+            showAlert("Sucesso", "Troca negada com sucesso!", Alert.AlertType.INFORMATION);
+        } catch (SQLException e) {
+            showAlert("Erro", "Erro ao negar a troca: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
     @FXML
     private void goToPropostaTrocas(ActionEvent event) {
         if (tblTodasTrocas.getSelectionModel().getSelectedItem() == null) {
-        // Mostra um alerta caso nenhum item esteja selecionado
-        showAlert("Atenção", "Por favor, selecione uma troca antes de fazer uma proposta.", Alert.AlertType.WARNING);
-        return;
-    }
-    Trocas trocaSelecionada = tblTodasTrocas.getSelectionModel().getSelectedItem();
-    Contexto.setIdTrocaSelecionada(trocaSelecionada.getId());
+            showAlert("Atenção", "Por favor, selecione uma troca antes de fazer uma proposta.", Alert.AlertType.WARNING);
+            return;
+        }
+        Trocas trocaSelecionada = tblTodasTrocas.getSelectionModel().getSelectedItem();
+        Contexto.setIdTrocaSelecionada(trocaSelecionada.getId());
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/propostaTroca.fxml"));
             Scene scene = new Scene(root);
@@ -194,16 +197,6 @@ public class TrocasController {
         }
     }
 
-    
-    
-    
-    
-    //   -----------------------------------     BOTÕES     ---------------------------------------------
-    
-    
-    
-    
-    
     @FXML
     private void goToCadastroTrocas(ActionEvent event) {
         try {
@@ -217,28 +210,55 @@ public class TrocasController {
             showAlert("Erro", "Erro ao carregar a tela de cadastro de trocas.", AlertType.ERROR);
         }
     }
+
     @FXML
     private void goToCollection(ActionEvent event) {
-        
-                try {
-                Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) btnCollection.getScene().getWindow();
-                stage.setTitle("Collection");
-                stage.setResizable(false);
-                stage.setScene(scene);
-	    	stage.centerOnScreen();
-                stage.show();
-            } catch (IOException e) {
-                showAlert("Erro", "Erro ao carregar o Menu .", Alert.AlertType.ERROR);
-            }
-    
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/collection.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnCollection.getScene().getWindow();
+            stage.setTitle("Collection");
+            stage.setResizable(false);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Erro", "Erro ao carregar a tela de coleções.", Alert.AlertType.ERROR);
+        }
     }
-    private void showAlert(String title, String message, AlertType alertType) {
+
+    @FXML
+    private void goToPerfil(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/perfil.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnUser.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Erro", "Erro ao carregar a tela de perfil.", Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    private void goToTrocas(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/trocas.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnTrocas.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Erro", "Erro ao carregar a tela de trocas.", Alert.AlertType.ERROR);
+        }
+    }
+
+    private void showAlert(String title, String content, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(content);
         alert.showAndWait();
     }
 }

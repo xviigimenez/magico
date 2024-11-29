@@ -153,4 +153,8 @@ public class Trocas {
     public BooleanProperty cartaOferecidaProperty() {
         return isCartaOferecida;
     }
+
+    public boolean getConcluido() {
+        return concluido.get();
+    }
 }
