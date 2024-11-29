@@ -1,3 +1,3 @@
-/target/
-CardProData.db
+target/
+*.db
 user_session.json
