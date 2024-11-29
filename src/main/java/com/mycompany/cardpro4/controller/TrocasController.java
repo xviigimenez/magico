@@ -20,6 +20,7 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import model.Session;
 import model.Trocas;
+import model.Contexto;
 import model.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -179,6 +180,8 @@ public class TrocasController {
         showAlert("Atenção", "Por favor, selecione uma troca antes de fazer uma proposta.", Alert.AlertType.WARNING);
         return;
     }
+    Trocas trocaSelecionada = tblTodasTrocas.getSelectionModel().getSelectedItem();
+    Contexto.setIdTrocaSelecionada(trocaSelecionada.getId());
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/fxml/propostaTroca.fxml"));
             Scene scene = new Scene(root);
