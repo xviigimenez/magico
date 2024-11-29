@@ -10,6 +10,7 @@ public class Session {
 
     private static final String FILE_PATH = "user_session.json";  // Arquivo JSON para salvar os dados do usuário
 
+    
     // Salva os dados do usuário em um arquivo JSON
     public static void setUser(int id, String name, String email) {
         User user = new User(id, name, email, "", "");  // Considerando que o telefone e a senha não são necessários neste momento
