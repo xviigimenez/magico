@@ -21,6 +21,7 @@
             <TextField fx:id="txtName" layoutX="29.0" layoutY="96.0" promptText="Nome" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="txtEmail" layoutX="230.0" layoutY="96.0" promptText="E-mail" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
             <TextField fx:id="txtTel" layoutX="29.0" layoutY="148.0" prefHeight="28.0" prefWidth="149.0" promptText="Telefone" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
+            <PasswordField fx:id="txtPassword" layoutX="229.0" layoutY="149.0" prefHeight="27.0" prefWidth="152.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
             <PasswordField fx:id="txtConfirmPassword" layoutX="29.0" layoutY="200.0" promptText="Confirme a senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
             <Button fx:id="btnBack" layoutX="38.0" layoutY="285.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="41.0" prefWidth="72.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
                <cursor>
@@ -38,7 +39,6 @@
                   <Font name="Consolas" size="18.0" />
                </font>
             </Label>
-            <PasswordField fx:id="txtPassword" layoutX="229.0" layoutY="149.0" prefHeight="27.0" prefWidth="152.0" promptText="Senha" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
          </children>
       </AnchorPane>
    </left>
