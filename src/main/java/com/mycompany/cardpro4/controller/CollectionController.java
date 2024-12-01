@@ -90,7 +90,7 @@ public class CollectionController implements Initializable {
             }
 
             tilePaneCartas.getChildren().clear();
-            tilePaneCartas.setHgap(10);
+            tilePaneCartas.setHgap(20);
             tilePaneCartas.setVgap(10);
 
             for (Carta carta : cartas) {
@@ -281,6 +281,8 @@ private void filtrarCartas() {
         @FXML
     private void resetCards(){
         carregarCartasUsuarioAtual();
+	// Tentativa de apagar o que está na caixa de pesquisa ao clicar no "Reset"
+	txtCartaName.clear();
     }
     
 }

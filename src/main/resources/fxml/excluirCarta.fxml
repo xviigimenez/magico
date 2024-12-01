@@ -26,7 +26,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="listaBox" layoutX="44.0" layoutY="174.0" prefHeight="26.0" prefWidth="200.0" promptText="Lista" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <ComboBox fx:id="listaBox" layoutX="44.0" layoutY="174.0" prefHeight="26.0" prefWidth="200.0" promptText="Escolha..." style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
       <Button fx:id="btnBack" layoutX="44.0" layoutY="238.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
