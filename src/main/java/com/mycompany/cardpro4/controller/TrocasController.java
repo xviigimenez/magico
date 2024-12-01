@@ -228,16 +228,16 @@ public class TrocasController {
     }
 
     @FXML
-    private void goToPerfil(ActionEvent event) {
+    private void goToUsuario(ActionEvent event) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/perfil.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/usuario.fxml"));
             Scene scene = new Scene(root);
             Stage stage = (Stage) btnUser.getScene().getWindow();
             stage.setScene(scene);
             stage.centerOnScreen();
             stage.show();
         } catch (IOException e) {
-            showAlert("Erro", "Erro ao carregar a tela de perfil.", Alert.AlertType.ERROR);
+            showAlert("Erro", "Erro ao carregar a tela de usuário.", Alert.AlertType.ERROR);
         }
     }
 

@@ -12,8 +12,8 @@ public class Session {
 
     
     // Salva os dados do usuário em um arquivo JSON
-    public static void setUser(int id, String name, String email) {
-        User user = new User(id, name, email, "", "");  // Considerando que o telefone e a senha não são necessários neste momento
+    public static void setUser(int id, String name, String email, String tel, String password) {
+        User user = new User(id, name, email, tel, password);
         Gson gson = new Gson();
         String userJson = gson.toJson(user);
         try (FileWriter writer = new FileWriter(FILE_PATH)) {

@@ -45,7 +45,7 @@
                 <TilePane fx:id="tilePaneCartas" prefWidth="700.0" />
             </content>
         </ScrollPane>
-      <Button layoutX="656.0" layoutY="535.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE">
+      <Button fx:id="btnUser" layoutX="656.0" layoutY="535.0" mnemonicParsing="false" onAction="#goToUsuario" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

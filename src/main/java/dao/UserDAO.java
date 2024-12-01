@@ -17,14 +17,14 @@ public class UserDAO implements DAO<User> {
 
     @Override
 public void inserir(User user) {
-    String sql = "INSERT INTO usuarios (name, password, tel, email) VALUES (?, ?, ?, ?)";
+    String sql = "INSERT INTO usuarios (name, email, tel, password) VALUES (?, ?, ?, ?)";
     try (Connection conn = getConnection();
          PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
         stmt.setString(1, user.getName());
-        stmt.setString(2, hashPassword(user.getPassword())); // Transforma a senha em hash
+        stmt.setString(2, user.getEmail());
         stmt.setString(3, user.getTel());
-        stmt.setString(4, user.getEmail());
+        stmt.setString(4, hashPassword(user.getPassword())); // Transforma a senha em hash
 
         int rowsAffected = stmt.executeUpdate();
 

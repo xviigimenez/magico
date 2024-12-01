@@ -36,7 +36,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnUser" layoutX="886.0" layoutY="547.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE">
+      <Button fx:id="btnUser" layoutX="886.0" layoutY="547.0" mnemonicParsing="false" onAction="#goToUsuario" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

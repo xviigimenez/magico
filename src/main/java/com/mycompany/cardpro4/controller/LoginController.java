@@ -47,7 +47,7 @@ public class LoginController {
             showAlert("Erro", "E-mail ou senha incorretos!", AlertType.ERROR);
         } else {
             // Inicializa o Session e armazena os dados do usuário
-            Session.setUser(user.getId(), user.getName(), user.getEmail());
+            Session.setUser(user.getId(), user.getName(), user.getEmail(), user.getTel(), user.getPassword());
             showAlert("Sucesso", "Login bem-sucedido!", AlertType.INFORMATION);
             openMainScreen(); // Abre a próxima tela
         }

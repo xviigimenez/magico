@@ -78,7 +78,7 @@ public class CadastroController {
         }
 
         // Responsável por verificar se o email tem um formato válido simples
-        if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+        if (!email.matches("^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)*\\.[a-zA-Z]{2,}$")) {
             showAlert("Erro", "O email informado é inválido!", AlertType.ERROR);
             return;
         }
@@ -90,7 +90,7 @@ public class CadastroController {
         }
 
         // Responsável por criar um novo objeto User com id sendo nulo, o banco irá gerar
-        User user = new User(name, password, tel, email);
+        User user = new User(name, email, tel, password);
 
         // Responsável por inserir o usuário no banco
         userDAO.inserir(user);

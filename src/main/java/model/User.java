@@ -25,7 +25,7 @@ public class User {
         
     }
 //    constructor sem id para novos usuarios!
-    public User(String name, String password, String tel, String email) {
+    public User(String name, String email, String tel, String password) {
         this.name = name;
         this.password = password;
 
