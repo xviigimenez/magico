@@ -13,29 +13,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="324.0" prefWidth="709.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.ExcluirCartaController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="324.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.ExcluirCartaController">
     <stylesheets>
         <URL value="@/styles/excluircarta.css" />
     </stylesheets>
    <children>
-      <ComboBox fx:id="tipoBox" layoutX="44.0" layoutY="124.0" prefHeight="26.0" prefWidth="397.0" promptText="Selecione a opção desejada" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
-      <Button fx:id="btnExcluir" layoutX="348.0" layoutY="236.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #a81e1e;" text="Excluir" textFill="WHITE">
+      <ComboBox fx:id="tipoBox" layoutX="44.0" layoutY="124.0" prefHeight="27.0" prefWidth="200.0" promptText="Selecione a opção desejada" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <Button fx:id="btnExcluir" layoutX="150.0" layoutY="238.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #a81e1e;" text="Excluir" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <ComboBox fx:id="listaBox" layoutX="44.0" layoutY="174.0" prefHeight="26.0" prefWidth="397.0" promptText="Lista" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
-      <Button fx:id="btnBack" layoutX="212.0" layoutY="236.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="40.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
+      <ComboBox fx:id="listaBox" layoutX="44.0" layoutY="174.0" prefHeight="26.0" prefWidth="200.0" promptText="Lista" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
+      <Button fx:id="btnBack" layoutX="44.0" layoutY="238.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="27.0" prefWidth="94.0" style="-fx-background-color: #613ce8;" text="Voltar" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="54.0" layoutY="46.0" text="Deseja excluir um Binder ou uma Carta?">
+      <Label layoutX="54.0" layoutY="46.0" text="O que deseja excluir?">
          <font>
             <Font name="Consolas" size="18.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="489.0" layoutY="1.0" prefHeight="323.0" prefWidth="249.0" style="-fx-background-image: url(&quot;m10-128-burning-inquiry.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 500px;" />
+      <AnchorPane layoutX="308.0" prefHeight="324.0" prefWidth="294.0" style="-fx-background-image: url(&quot;m10-128-burning-inquiry.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-size: 500px;" />
    </children>
 </AnchorPane>

@@ -13,14 +13,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="1283.0" stylesheets="&#10;    " xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.TrocasController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" style="-fx-background-image: url(&quot;background/Orzhov_Wallpaper_1280x960.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-position: center;" stylesheets="&#10;    " xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.TrocasController">
    <children>
       <Label fx:id="lblUserName" alignment="CENTER" contentDisplay="CENTER" layoutX="20.0" layoutY="32.0" prefHeight="26.0" prefWidth="300.0">
          <font>
             <Font name="Franklin Gothic Heavy" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btnCadastrarTroca" layoutX="77.0" layoutY="391.0" onAction="#goToCadastroTrocas" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Adicionar..." textFill="WHITE">
+      <Button fx:id="btnCadastrarTroca" layoutX="37.0" layoutY="397.0" onAction="#goToCadastroTrocas" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Adicionar..." textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -28,7 +28,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnExcluirTroca" layoutX="196.0" layoutY="391.0" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #7E3A3A;" text="Excluir..." textFill="WHITE">
+      <Button fx:id="btnExcluirTroca" layoutX="156.0" layoutY="397.0" prefHeight="26.0" prefWidth="66.0" style="-fx-background-color: #7E3A3A;" text="Excluir..." textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -36,7 +36,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnUser" layoutX="886.0" layoutY="547.0" mnemonicParsing="false" onAction="#goToUsuario" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE">
+      <Button fx:id="btnUser" layoutX="707.0" layoutY="541.0" mnemonicParsing="false" onAction="#goToUsuario" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -44,7 +44,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnCollection" layoutX="358.0" layoutY="547.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Collection" textFill="WHITE">
+      <Button fx:id="btnCollection" layoutX="179.0" layoutY="541.0" mnemonicParsing="false" onAction="#goToCollection" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Collection" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -52,12 +52,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnTrocas" layoutX="630.0" layoutY="547.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3d258f;" text="Trocas" textFill="WHITE" />
-      <Label layoutX="77.0" layoutY="58.0" text="Minhas Trocas">
+      <Button fx:id="btnTrocas" layoutX="451.0" layoutY="541.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3d258f;" text="Trocas" textFill="WHITE" />
+      <Label layoutX="37.0" layoutY="64.0" text="Minhas Trocas" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="18.0" />
+            <Font name="Consolas Bold" size="24.0" />
          </font></Label>
-    <TableView fx:id="tblTrocas" layoutX="75.0" layoutY="111.0" prefHeight="243.0" prefWidth="511.0">
+    <TableView fx:id="tblTrocas" layoutX="35.0" layoutY="117.0" prefHeight="250.0" prefWidth="450.0">
         <columns>
             <TableColumn fx:id="colId" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colCarta1" prefWidth="150.0" text="Carta Troca" />
@@ -69,7 +69,7 @@
             <TableColumn fx:id="colDescription" prefWidth="350.0" text="Descrição" />
         </columns>
     </TableView>
-      <TableView fx:id="tblTodasTrocas" layoutX="703.0" layoutY="111.0" prefHeight="243.0" prefWidth="511.0">
+      <TableView fx:id="tblTodasTrocas" layoutX="514.0" layoutY="115.0" prefHeight="250.0" prefWidth="450.0">
         <columns>
             <TableColumn fx:id="colIdTodos" prefWidth="50.0" text="ID" />
             <TableColumn fx:id="colCarta1Todos" prefWidth="150.0" text="Carta Troca" />
@@ -81,30 +81,30 @@
             <TableColumn fx:id="colDescriptionTodos" prefWidth="350.0" text="Descrição" />
         </columns>
     </TableView>
-      <Button fx:id="btnAceitarTroca" layoutX="358.0" layoutY="392.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Aceitar Troca" textFill="WHITE">
+      <Button fx:id="btnAceitarTroca" layoutX="258.0" layoutY="397.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Aceitar Troca" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnNegarTroca" layoutX="480.0" layoutY="392.0" mnemonicParsing="false" onAction="#handleNegarTroca" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Negar Troca" textFill="WHITE">
+      <Button fx:id="btnNegarTroca" layoutX="380.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleNegarTroca" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Negar Troca" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnFazerProposta" layoutX="1092.0" layoutY="391.0" mnemonicParsing="false" onAction="#goToPropostaTrocas" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: #613ce8;" text="Fazer Proposta..." textFill="WHITE">
+      <Button fx:id="btnFazerProposta" layoutX="842.0" layoutY="397.0" mnemonicParsing="false" onAction="#goToPropostaTrocas" prefHeight="26.0" prefWidth="122.0" style="-fx-background-color: #613ce8;" text="Fazer Proposta..." textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="703.0" layoutY="58.0" text="Outras Trocas">
+      <Label layoutX="517.0" layoutY="63.0" text="Outras Trocas" textFill="WHITE">
          <font>
-            <Font name="Consolas" size="18.0" />
+            <Font name="Consolas Bold" size="24.0" />
          </font>
       </Label>
    </children>

@@ -15,32 +15,16 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="605.0" prefWidth="916.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CollectionController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-image: url(&quot;background/Azorius_Wallpaper_1280x960.jpg&quot;); -fx-background-repeat: no-repeat; -fx-background-position: center;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.cardpro4.controller.CollectionController">
     <stylesheets>
     </stylesheets>
     <children>
-        <Label fx:id="lblUserName" contentDisplay="CENTER" layoutX="71.0" layoutY="33.0" prefHeight="26.0" prefWidth="287.0">
+        <Label fx:id="lblUserName" contentDisplay="CENTER" layoutX="71.0" layoutY="33.0" prefHeight="26.0" prefWidth="287.0" textFill="WHITE">
             <font>
-                <Font name="Franklin Gothic Heavy" size="20.0" />
+                <Font name="Consolas" size="20.0" />
             </font>
         </Label>
-        <Button fx:id="btnCadastrarCarta" layoutX="364.0" layoutY="81.0" onAction="#goToCadastroCarta" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Adicionar..." textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
- 
-        </Button>
-        <Button fx:id="btnExcluirCarta" layoutX="494.0" layoutY="81.0" onAction="#goToExcluir" style="-fx-background-color: #7E3A3A;" text="Excluir..." textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
-        <ScrollPane fx:id="scrollPaneCartas" layoutX="72.0" layoutY="113.0" prefHeight="380.0" prefWidth="733.0">
+        <ScrollPane fx:id="scrollPaneCartas" layoutX="72.0" layoutY="113.0" prefHeight="345.0" prefWidth="733.0">
             <content>
                 <TilePane fx:id="tilePaneCartas" prefWidth="700.0" />
             </content>
@@ -59,25 +43,50 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button fx:id="btnMostrarCombos" layoutX="718.0" layoutY="46.0" mnemonicParsing="false" onAction="#mostrarCombos" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Filtros" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
       
       <Button layoutX="126.0" layoutY="535.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3d258f;" text="Coleção" textFill="WHITE" />
-      <ComboBox fx:id="temaBox" layoutX="612.0" layoutY="45.0" prefHeight="26.0" prefWidth="88.0" promptText="Tema" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" visible="false" />
-      <ComboBox fx:id="binderBox" layoutX="718.0" layoutY="80.0" prefHeight="26.0" prefWidth="88.0" promptText="Binder" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
-      <ComboBox fx:id="raridadeBox" layoutX="466.0" layoutY="45.0" prefHeight="26.0" prefWidth="119.0" promptText="Raridade" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" visible="false" />
-      <TextField fx:id="txtCartaName" layoutX="72.0" layoutY="80.0" promptText="Busca" style="-fx-background-color: transparent; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
-      <Button fx:id="btnFilterCards" layoutX="222.0" layoutY="81.0" mnemonicParsing="false" onAction="#filtrarCartas" style="-fx-background-color: #613ce8;" text="🔎" textFill="WHITE">
+      <TextField fx:id="txtCartaName" layoutX="72.0" layoutY="80.0" promptText="Pesquisar..." style="-fx-background-color: white; -fx-border-color: #613ce8; -fx-border-width: 0px 0px 2px 0px;" />
+      <Button fx:id="btnFilterCards" layoutX="224.0" layoutY="80.0" mnemonicParsing="false" onAction="#filtrarCartas" prefHeight="27.0" prefWidth="28.0" style="-fx-background-color: #613ce8;" text="🔎" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button fx:id="btnResetCards" layoutX="394.0" layoutY="46.0" mnemonicParsing="false" onAction="#resetCards" style="-fx-background-color: #613ce8;" text="Reset" textFill="WHITE" visible="false">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
+      <FlowPane alignment="CENTER" hgap="25.0" layoutX="276.0" layoutY="80.0" prefHeight="27.0" prefWidth="529.0">
+         <children>
+            <Button fx:id="btnResetCards" mnemonicParsing="false" onAction="#resetCards" style="-fx-background-color: #613ce8;" text="Reset" textFill="WHITE" visible="false">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ComboBox fx:id="temaBox" prefHeight="26.0" prefWidth="88.0" promptText="Tema" style="-fx-background-color: white; -fx-border-color: #613ce8;" visible="false" />
+            <ComboBox fx:id="raridadeBox" prefHeight="26.0" prefWidth="119.0" promptText="Raridade" style="-fx-background-color: white; -fx-border-color: #613ce8;" visible="false" />
+            <ComboBox fx:id="binderBox" prefHeight="26.0" prefWidth="88.0" promptText="Binder" style="-fx-background-color: white; -fx-border-color: #613ce8;" visible="false" />
+            <Button fx:id="btnMostrarCombos" mnemonicParsing="false" onAction="#mostrarCombos" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Filtros" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </FlowPane>
+      <FlowPane hgap="25.0" layoutX="350.0" layoutY="468.0" prefHeight="26.0" prefWidth="177.0">
+         <children>
+              <Button fx:id="btnCadastrarCarta" onAction="#goToCadastroCarta" prefHeight="26.0" style="-fx-background-color: #613ce8;" text="Adicionar..." textFill="WHITE">
+                  <font>
+                      <Font name="System Bold" size="12.0" />
+                  </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+       
+              </Button>
+              <Button fx:id="btnExcluirCarta" onAction="#goToExcluir" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #a81e1e;" text="Excluir..." textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </FlowPane>
     </children>
 </AnchorPane>

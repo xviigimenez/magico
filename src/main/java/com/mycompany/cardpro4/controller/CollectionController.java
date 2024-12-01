@@ -114,7 +114,7 @@ public class CollectionController implements Initializable {
             }
 
             Label lblNomeCarta = new Label(nomeCarta);
-            lblNomeCarta.setStyle("-fx-font-size: 8px; -fx-font-weight: bold; -fx-text-alignment: center;");
+            lblNomeCarta.setStyle("-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-alignment: center;");
 
             VBox cartaContainer = new VBox(5);
             cartaContainer.getChildren().addAll(imageView, lblNomeCarta);
@@ -187,10 +187,12 @@ public class CollectionController implements Initializable {
         boolean temaBoxVisivel = temaBox.isVisible();
         boolean raridadeBoxVisivel = raridadeBox.isVisible();
         boolean btnResetCardsVisivel = btnResetCards.isVisible();
+	boolean binderBoxVisivel = binderBox.isVisible();
 
         btnResetCards.setVisible(!btnResetCardsVisivel);
         temaBox.setVisible(!temaBoxVisivel);
         raridadeBox.setVisible(!raridadeBoxVisivel);
+	binderBox.setVisible(!binderBoxVisivel);
     }
     @FXML
     private void carregarColecoes() {
