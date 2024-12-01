@@ -36,7 +36,7 @@ public class UsuarioController implements Initializable {
     private Label lblUserName, lblUserEmail, lblUserTelefone, lblUserSenha;
 
     @FXML
-    private Button btnCollection, btnUser, btnTrocas;
+    private Button btnCollection, btnUser, btnTrocas, btnSair;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -134,6 +134,26 @@ public class UsuarioController implements Initializable {
             stage.show();
         } catch (IOException e) {
             showAlert("Erro", "Erro ao carregar a tela de trocas.", Alert.AlertType.ERROR);
+        }
+    }
+
+    @FXML
+    private void sairConta(ActionEvent event) {
+        try {
+	    // Encerra a sessão
+	    Session.clearSession();
+	    // Exibe um alerta antes de mudar de tela
+	    showAlert("Logout", "Desconectado da conta com sucesso!", Alert.AlertType.INFORMATION);
+	    // Carrega a tela de login novamente
+            Parent root = FXMLLoader.load(getClass().getResource("/com/mycompany/cardpro4/login.fxml"));
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) btnSair.getScene().getWindow();
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.setTitle("Login");
+            stage.show();
+        } catch (IOException e) {
+            showAlert("Erro", "Erro ao carregar a tela de login.", Alert.AlertType.ERROR);
         }
     }
 

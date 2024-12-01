@@ -19,12 +19,12 @@
     <stylesheets>
     </stylesheets>
     <children>
-        <Label fx:id="lblUserName" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="144.0" prefHeight="26.0" prefWidth="300.0" text="nome">
+        <Label fx:id="lblUserName" contentDisplay="CENTER" layoutX="308.0" layoutY="144.0" prefHeight="26.0" prefWidth="300.0" text="nome">
             <font>
                 <Font name="Franklin Gothic Heavy" size="20.0" />
             </font>
         </Label>
-      <Button fx:id="btnUser" layoutX="656.0" layoutY="535.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Usuário" textFill="WHITE" />
+      <Button fx:id="btnUser" layoutX="656.0" layoutY="535.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3d258f;" text="Usuário" textFill="WHITE" />
       <Button fx:id="btnTrocas" layoutX="395.0" layoutY="535.0" mnemonicParsing="false" onAction="#goToTrocas" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Trocas" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -40,20 +40,28 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label fx:id="lblUserEmail" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="200.0" prefHeight="26.0" prefWidth="300.0" text="email">
+      <Label fx:id="lblUserEmail" contentDisplay="CENTER" layoutX="308.0" layoutY="200.0" prefHeight="26.0" prefWidth="300.0" text="email">
          <font>
             <Font name="Franklin Gothic Heavy" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblUserTelefone" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="254.0" prefHeight="26.0" prefWidth="300.0" text="telefone">
+      <Label fx:id="lblUserTelefone" contentDisplay="CENTER" layoutX="308.0" layoutY="254.0" prefHeight="26.0" prefWidth="300.0" text="telefone">
          <font>
             <Font name="Franklin Gothic Heavy" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblUserSenha" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="309.0" prefHeight="26.0" prefWidth="300.0" text="senha">
+      <Label fx:id="lblUserSenha" contentDisplay="CENTER" layoutX="308.0" layoutY="309.0" prefHeight="26.0" prefWidth="300.0" text="senha">
          <font>
             <Font name="Franklin Gothic Heavy" size="20.0" />
          </font>
       </Label>
+      <Button fx:id="btnSair" layoutX="414.0" layoutY="365.0" mnemonicParsing="false" onAction="#sairConta" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #7E3A3A;" text="Sair" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

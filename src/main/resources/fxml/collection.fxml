@@ -19,7 +19,7 @@
     <stylesheets>
     </stylesheets>
     <children>
-        <Label fx:id="lblUserName" alignment="CENTER" contentDisplay="CENTER" layoutX="64.0" layoutY="33.0" prefHeight="26.0" prefWidth="300.0">
+        <Label fx:id="lblUserName" contentDisplay="CENTER" layoutX="71.0" layoutY="33.0" prefHeight="26.0" prefWidth="287.0">
             <font>
                 <Font name="Franklin Gothic Heavy" size="20.0" />
             </font>
@@ -65,7 +65,7 @@
          </cursor>
       </Button>
       
-      <Button layoutX="126.0" layoutY="535.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Coleção" textFill="WHITE" />
+      <Button layoutX="126.0" layoutY="535.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3d258f;" text="Coleção" textFill="WHITE" />
       <ComboBox fx:id="temaBox" layoutX="612.0" layoutY="45.0" prefHeight="26.0" prefWidth="88.0" promptText="Tema" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
       <ComboBox fx:id="binderBox" layoutX="718.0" layoutY="80.0" prefHeight="26.0" prefWidth="88.0" promptText="Binder" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />
       <ComboBox fx:id="raridadeBox" layoutX="466.0" layoutY="45.0" prefHeight="26.0" prefWidth="119.0" promptText="Raridade" style="-fx-background-color: transparent; -fx-border-color: #613ce8;" />

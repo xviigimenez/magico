@@ -52,7 +52,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnTrocas" layoutX="630.0" layoutY="547.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #613ce8;" text="Trocas" textFill="WHITE" />
+      <Button fx:id="btnTrocas" layoutX="630.0" layoutY="547.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="88.0" style="-fx-background-color: #3d258f;" text="Trocas" textFill="WHITE" />
       <Label layoutX="77.0" layoutY="58.0" text="Minhas Trocas">
          <font>
             <Font name="Consolas" size="18.0" />
