@@ -31,7 +31,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Label layoutX="54.0" layoutY="46.0" text="O que deseja excluir?">
+      <Label layoutX="46.0" layoutY="46.0" text="O que deseja excluir?">
          <font>
             <Font name="Consolas" size="18.0" />
          </font>

@@ -281,7 +281,7 @@ private void filtrarCartas() {
         @FXML
     private void resetCards(){
         carregarCartasUsuarioAtual();
-	// Tentativa de apagar o que está na caixa de pesquisa ao clicar no "Reset"
+	// Apaga o que está na caixa de pesquisa ao clicar no "Reset"
 	txtCartaName.clear();
     }
     
