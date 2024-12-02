@@ -2,7 +2,9 @@ package com.mycompany.cardpro4.controller;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import javafx.application.Platform;
 import dao.TrocasDAO;
+import dao.CartaDAO;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
@@ -146,18 +148,22 @@ public class TrocasController {
     }
 
     private void carregarTrocas() {
-        List<Trocas> trocasList = trocasDAO.listar();
-        List<Trocas> trocasNaoConcluidas = trocasList.stream()
-                .filter(troca -> !troca.isConcluido())
-                .collect(Collectors.toList());
+    List<Trocas> trocasList = trocasDAO.listar();
+    List<Trocas> trocasNaoConcluidas = trocasList.stream()
+            .filter(troca -> !troca.isConcluido())
+            .collect(Collectors.toList());
 
+    ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasNaoConcluidas);
+    tblTodasTrocas.setItems(observableTrocas);
+
+    // Use Platform.runLater to ensure this runs after the UI update
+    Platform.runLater(() -> {
         if (trocasNaoConcluidas.isEmpty()) {
             showAlert("Aviso", "Nenhuma troca encontrada.", Alert.AlertType.INFORMATION);
         }
+    });
+}
 
-        ObservableList<Trocas> observableTrocas = FXCollections.observableArrayList(trocasNaoConcluidas);
-        tblTodasTrocas.setItems(observableTrocas);
-    }
 
     @FXML
     private void handleNegarTroca() {
@@ -177,6 +183,45 @@ public class TrocasController {
         }
     }
 
+    @FXML
+    private void handleAceitarTroca(){
+        if (tblTrocas.getSelectionModel().getSelectedItem() == null) {
+            showAlert("Atenção", "Nenhuma troca selecionada!", Alert.AlertType.WARNING);
+            return;
+        }
+        Trocas trocaSelecionada = tblTrocas.getSelectionModel().getSelectedItem();
+        if (trocaSelecionada.getConcluido()) {
+        showAlert("Erro", "Esta troca já foi concluída!", Alert.AlertType.ERROR);
+        return;
+        }
+
+        int idUser1 = trocaSelecionada.getIdUser1();
+        int idUser2 = trocaSelecionada.getIdUser2();
+
+        int idCarta1 = trocaSelecionada.getIdCarta1();
+        int idCarta2 = trocaSelecionada.getIdCarta2(); 
+
+    try {
+        CartaDAO cartaDAO = new CartaDAO();
+        
+        cartaDAO.atualizarUserCarta(idCarta1, idUser2);
+
+        cartaDAO.atualizarUserCarta(idCarta2, idUser1);
+
+        trocaSelecionada.setConcluido(true);
+        TrocasDAO trocasDAO = new TrocasDAO();
+        trocasDAO.atualizar(trocaSelecionada);
+
+        carregarMinhasTrocas();
+        carregarTrocas();
+        
+        showAlert("Sucesso", "Troca realizada com sucesso!", Alert.AlertType.INFORMATION);
+    }catch(SQLException e){
+        showAlert("Erro", "Erro ao realizar a troca: " + e.getMessage(), Alert.AlertType.ERROR);
+        e.printStackTrace();
+    }
+}
+    
     @FXML
     private void goToPropostaTrocas(ActionEvent event) {
         if (tblTodasTrocas.getSelectionModel().getSelectedItem() == null) {

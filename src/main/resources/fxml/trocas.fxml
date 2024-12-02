@@ -81,7 +81,7 @@
             <TableColumn fx:id="colDescriptionTodos" prefWidth="350.0" text="Descrição" />
         </columns>
     </TableView>
-      <Button fx:id="btnAceitarTroca" layoutX="258.0" layoutY="397.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Aceitar Troca" textFill="WHITE">
+      <Button fx:id="btnAceitarTroca" layoutX="258.0" layoutY="397.0" mnemonicParsing="false" onAction="#handleAceitarTroca" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #613ce8;" text="Aceitar Troca" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

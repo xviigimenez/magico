@@ -160,6 +160,15 @@ public Carta consultar(int id) {
     }
     return cartas;
 }
+    public void atualizarUserCarta(int id, int idUser) throws SQLException {
+    String query = "UPDATE cartas SET id_user = ? WHERE id = ?";
+    try (Connection conn = getConnection(); 
+         PreparedStatement stmt = conn.prepareStatement(query)) {
+        stmt.setInt(1, idUser);
+        stmt.setInt(2, id);
+        stmt.executeUpdate();
+    }
+}
     
     
 //    Antigo buscarCartasFiltradas sem a consulta de binder
